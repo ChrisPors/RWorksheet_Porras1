@@ -7,7 +7,8 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
+
+
 #1
 vector_a<- c(1,2,3,4,5)
 matrix_A <- matrix(0,nrow = 5, ncol =5)
@@ -20,15 +21,19 @@ matrix_A[c,p] <-abs (vector_a[c] - vector_a[p])
 }
 
 matrix_A
+```
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 #2
 
 for (c in 1:5){
 cat(paste0("\"", rep("*",c),"\""),"\n")
 }
+```
 
 #3
-start <- as.numeric(readline("Enter numbers of terms to print in fibpancci sequence:"))
+start <- as.numeric(readline("Enter numbers of terms to print in fibonacci sequence:"))
 
 if (is.na(start)){
 cat("Error. Please enter new Number.\n")
@@ -50,3 +55,26 @@ a<-b
 b<-nextFib
 }
 cat("\n")
+
+#4 
+
+  HouseHold <- data.frame(
+  ShoeSize =c(6.5,9.0,8.5,8.5,10.5,7.0,9.5,9.0,13.0,7.5,10.5,8.5,12.0,10.5,13.0,11.5,8.5,5.0,10.0,6.5,7.5,8.5,10.5,8.5,10.5,11.0,9.0,13.0),
+  Height =c(66.0,68.0,64.5,65.0,70.0,64.0,70.0,71.0,72.0,64.0,74.5,67.0,71.0,71.0,77.0,72.0,59.0,62.0,72.0,66.0,64.0,67.0,73.0,69.0,72.0,70.0,69.0,70.0),
+  Gender = c("F","F","F","F","M","F","F","F","M","F","M","F","M","M","M","M","F","F","M","F","F","M","M","F","M","M","M","M")
+  )
+  
+write.csv(HouseHold, file = "HouseHold.csv", row.names = FALSE)
+
+
+
+
+#4.a
+print(HouseHold[1:6,])
+
+Sub_Dataf <- read.csv("HouseHold.csv")
+Sub_Dataf$Gender <- factor(Sub_Dataf$Gender, levels = c("M", "F"))
+Sub_Dataf$Gender<- as.(Sub_Dataf$Gender)
+
+
+
