@@ -1,0 +1,60 @@
+---
+title: "RWorksheet_Porras#4C"
+author: "Porras, Christian BSIT 2-C"
+date: "2023-11-23"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#number 1
+library(readr)
+mpg <- read.csv(file = "mpg.csv", header = T, sep = ",")
+
+head(mpg)
+```
+
+```{r}
+str(mpg)
+```
+
+
+```{r}
+
+```
+b. Graph the result by using plot() and ggplot(). Write the codes and its result.
+
+```{r}
+
+num_cars <- table(mpg$manufacturer)
+num_cars
+
+install.packages(ggplot2)
+
+# Read the file
+mpg <- read.csv("mpg.csv")
+
+# Display the first 10 rows of the dataset
+head(mpg, 10)
+
+# Use plot() to graph the relationship between 'displ' and 'mpg'
+plot(mpg$displ, mpg$mpg, 
+     main = "Displacement vs. MPG", 
+     xlab = "Displacement", 
+     ylab = "MPG", 
+     pch = 19, 
+     frame = FALSE, 
+     col = "blue")
+
+```
+
+```{r}
+
+
+qplot(manufacturer, data = mpg,
+geom = "bar",
+fill = manufacturer)
+```
